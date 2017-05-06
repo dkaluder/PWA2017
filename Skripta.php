@@ -55,9 +55,9 @@
 			$query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj, URLSlike) 
 					VALUES ('$naziv', '$sifra', '$cijena', '$kategorija', '$opis', '$arhiviraj', '$picture')";
 					
-					$result = mysqli_query($dbc, $query) or die('Error querying databese.');
+					$result = sqlsrv_query($dbc, $query) or die('Error querying databese.');
 					
-					mysqli_close($dbc);
+					sqlsrv_close($dbc);
 		?>	
 		</main>
 		
