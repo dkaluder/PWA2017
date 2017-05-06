@@ -14,7 +14,12 @@
 			
 		<main>
 		<?php
-					$dbc = mysqli_connect('localhost', 'root', 'cbb446bb', 'Autotrader') or die('Error connecting to MySQL server.');
+					// SQL Server Extension Sample Code:
+					$connectionInfo = array("UID" => "dkaluder@pwa", "pwd" => "Cbb446bb", "Database" => "Autotrader", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+					$serverName = "tcp:pwa.database.windows.net,1433";
+					$dbc = sqlsrv_connect($serverName, $connectionInfo);
+					
+					//$dbc = mysqli_connect('localhost', 'root', 'cbb446bb', 'Autotrader') or die('Error connecting to MySQL server.');
 					
 					$query = "SELECT * FROM oglas where arhiviraj = 'ne';";
 					$result = mysqli_query($dbc, $query);

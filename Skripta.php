@@ -42,7 +42,15 @@
 			echo "Arhiviraj: " . $arhiviraj . "<br />";
 			echo '<img src="Img/' . $picture . '" />';
 
-			$dbc = mysqli_connect('localhost', 'root', 'cbb446bb', 'Autotrader') or die('Error connecting to MySQL server.');
+			
+			// SQL Server Extension Sample Code:
+				$connectionInfo = array("UID" => "dkaluder@pwa", "pwd" => "Cbb446bb", "Database" => "Autotrader", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+				$serverName = "tcp:pwa.database.windows.net,1433";
+				$dbc = sqlsrv_connect($serverName, $connectionInfo);
+			
+			
+			
+			//$dbc = mysqli_connect('localhost', 'root', 'cbb446bb', 'Autotrader') or die('Error connecting to MySQL server.');
 			
 			$query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj, URLSlike) 
 					VALUES ('$naziv', '$sifra', '$cijena', '$kategorija', '$opis', '$arhiviraj', '$picture')";
