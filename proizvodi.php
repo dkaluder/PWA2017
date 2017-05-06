@@ -22,8 +22,8 @@
 					//$dbc = mysqli_connect('localhost', 'root', 'cbb446bb', 'Autotrader') or die('Error connecting to MySQL server.');
 					
 					$query = "SELECT * FROM oglas where arhiviraj = 'ne';";
-					$result = mysqli_query($dbc, $query);
-					while($row = mysqli_fetch_array($result)) { 
+					$result = sqlsrv_query($dbc, $query);
+					while($row = sqlsrv_fetch_array($result)) { 
 					echo "<Article><Table>" ;
 						
 						echo "<tr><td>Naziv:</td><td>" . $row['Naziv'] . '</td></tr>';
@@ -36,7 +36,7 @@
 
 					}
 					
-					mysqli_close($dbc);
+					sqlsrv_close($dbc);
 				?>
 		
 		</main>
