@@ -28,6 +28,13 @@
 	</head>
 	
 	<body>
+	<div class="jumbotron">
+	<div class="container text-center">
+    <h1>Prodaja rabljnih vozila <img src="Img/logoCar.svg"></div></h1>      
+    <p>Mission, Vission & Values</p>
+	</div>
+	</div>
+	
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
     <div class="navbar-header">
