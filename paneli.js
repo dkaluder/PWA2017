@@ -1,4 +1,4 @@
-<script> function evenpanels() {
+function evenpanels() {
 			var heights = [];                           // make an array
 			$(".panel-body").each(function(){           // copy the height of each
 				heights.push($(this).height());         //   element to the array
@@ -14,4 +14,3 @@
         });                                     
         evenpanels();
 });
-</script>
