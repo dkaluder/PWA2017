@@ -24,7 +24,7 @@
 								<div class="panel panel-primary">
 									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
 						
-					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .'" class="img-responsive" style="width:100%" alt="Image"></div>' ;
+					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .'" class="img-responsive" style="width:100%" alt="Image">'.$row['Opis'].'</div>' ;
 					echo '<div class="panel-footer">'. $row['Cijena'] .' kn</div>';
 					echo '</div> </div>';
 					}

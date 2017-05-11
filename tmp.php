@@ -3,7 +3,7 @@
 	<head>
 		<title>Unos</title>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" type="text/css" href="unos.css"/>
+		<link rel="stylesheet" type="text/css" href="administrator.css"/>
 		<meta charset="UTF-8"/>
 	</head>
 	
@@ -12,51 +12,41 @@
 			<?php include("header.php"); ?>
 		</header>
 			
-		<main>	
-			<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
-			<input type="hidden" name="MAX_FILE_SIZE" value="3048576" />
-			<Table>
-				<tr>
-				<td> <label for="naziv">Naziv vozila:</label> </td>
-				<td><input id="input_naziv" type="text" name="naziv" />  </td>
-				</tr>
-				<tr>
-				<td><label for="sifra">Šifra:</label></td>
-				<td><input id="input_sifra" type="text" name="sifra" /></td>
-				<tr/>
-				<tr>
-				<td><label for="kategorija">Kategorija:</label></td>
-				<td><select id ="input_kategorija" name="kategorija" >
-				  <option value="Automobil">Automobil</option>
-				  <option value="Motocikl">Motocikl</option>
-				  <option value="Terenac">Terenac</option>
-				  <option value="Kombi">Kombi</option>
-				  <option value="Kamion">Kamion</option>
-				</select></td>
-				<tr/>
-				
-				<tr>
-				<td colspan="2" ><textarea id="input_opis" name="opis"   placeholder="Kratiki opis proizvoda" ></textarea> </td>
-				<tr/>
-				<tr>
-				<td><label for="cijena">Cijena(kn):</label></td>
-				<td><input id="input_cijena" type="number" name="cijena" /></td>
-				<tr/>
-				
-				<tr>
-				<td><label for="picture" >Upload slike </label></td>
-				<td><input id ="picture" type="file" name="picture" accept="image/*"></td>
-				<tr/>
-				<tr>
-				<td colspan="2" ><input id="input_arhiviraj" type="checkbox" name="arhiviraj" value="da">
-				<label for="arhiviraj" >Arhiviraj </label></td>
-				<tr/>
-				<tr>
-				<td colspan="2"  ><input type="submit" value="Pohrani" ></td>
-				</tr>
-			</Table>
-			</form>
-			
+		<main>
+		<?php
+		
+					include "database.php";
+					
+					
+					$query = "SELECT * FROM oglas;";
+					$result = sqlsrv_query($dbc, $query);
+					
+					while($row = sqlsrv_fetch_array($result)) { 
+						echo "<Article><Table>" ;
+						echo "<tr><td>Naziv:</td><td>" . $row['Naziv'] . '</td></tr>';
+						echo "<tr><td>Sifra:</td><td>" . $row['Sifra'] . '</td></tr>';
+						echo "<tr><td>Cijena:</td><td>" . $row['Cijena'] . '</td></tr>' ;
+						echo "<tr><td>Kategorija:</td><td>" . $row['Kategorija'] . '</td></tr>';
+						echo "<tr><td>Opis:</td><td>" . $row['Opis'] . '</td></tr>';
+						echo "<tr><td>Arhiviraj:</td><td>" . $row['Arhiviraj'] . '</td></tr>';
+						echo '<tr><td class="slika" colspan="2"><img src="Img/' . $row['URLSlike'] . '" /></td></tr>';
+						echo "<tr><td>";
+						
+						echo "<form name='delete' action='Delete.php' method='POST'>" . 
+						"<input type='hidden' value='" . $row['ID'] . "' name='ID_delete'>" .
+							"<input type='submit' value='Obriši unos'> </form>" ;
+						
+						
+						echo "</td><td>";
+						echo "<form name='switch' action='Switch.php' method='POST'>" . 
+						"<input type='hidden' value='" . $row['ID'] . "' name='ID_switch'>" .
+							"<input type='submit' value='Promjeni prikazivanje'> </form>";
+						echo "</td></tr>";
+						echo "</Table></Article>";
+					}
+
+					sqlsrv_close($dbc);
+				?>
 		</main>
 		
 		<footer>
@@ -64,3 +54,5 @@
 		</footer>
 	</body>
 </html>
+
+

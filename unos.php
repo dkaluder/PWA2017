@@ -20,7 +20,7 @@
 		  </div>
 		  
 		  <div class="form-group">
-			<label for="sifra">Naziv vozila:</label>
+			<label for="sifra">Šifra vozila:</label>
 			<input type="text" class="form-control" name="sifra" id="sifra" placeholder="Unesite sifru automobila">
 		  </div>
 	
@@ -46,7 +46,7 @@
 		  </div>
 		  
 		  <div class="form-group">
-			<label for="picture">File input</label>
+			<label for="picture">Upload slike</label>
 			<input type="file" name="picture" class="form-control-file" id="picture" aria-describedby="fileHelp" accept="image/*">
 			<small id="fileHelp" class="form-text text-muted">Maksimalna veličina slike je 3 Mb. </small>
 		  </div>

@@ -1,58 +1,53 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Unos</title>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" type="text/css" href="administrator.css"/>
-		<meta charset="UTF-8"/>
+		<?php include 'head.php';?>
+		<title>Administrator</title>
+		<script src="paneli.js"> </script>
 	</head>
 	
 	<body>
-		<header>
-			<?php include("header.php"); ?>
-		</header>
-			
-		<main>
-		<?php
-		
+	<?php $page = 'administrator'; include('nav.php'); ?>
+
+
+
+
+	<?php
 					include "database.php";
-					
-					
-					$query = "SELECT * FROM oglas;";
+					$query = "SELECT * FROM oglas where arhiviraj = 'ne';";
 					$result = sqlsrv_query($dbc, $query);
-					
-					while($row = sqlsrv_fetch_array($result)) { 
-						echo "<Article><Table>" ;
-						echo "<tr><td>Naziv:</td><td>" . $row['Naziv'] . '</td></tr>';
-						echo "<tr><td>Sifra:</td><td>" . $row['Sifra'] . '</td></tr>';
-						echo "<tr><td>Cijena:</td><td>" . $row['Cijena'] . '</td></tr>' ;
-						echo "<tr><td>Kategorija:</td><td>" . $row['Kategorija'] . '</td></tr>';
-						echo "<tr><td>Opis:</td><td>" . $row['Opis'] . '</td></tr>';
-						echo "<tr><td>Arhiviraj:</td><td>" . $row['Arhiviraj'] . '</td></tr>';
-						echo '<tr><td class="slika" colspan="2"><img src="Img/' . $row['URLSlike'] . '" /></td></tr>';
-						echo "<tr><td>";
+					echo'<div class="container">    
+							<div class="row">';
+					while($row = sqlsrv_fetch_array($result)) {
+							
+					echo '<div class="col-sm-4">
+								<div class="panel panel-primary">
+									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
 						
-						echo "<form name='delete' action='Delete.php' method='POST'>" . 
+					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .
+						 '" class="img-responsive" style="width:100%" alt="Image">'.$row['Opis'].'<br>Cijena:'.$row['Cijena'].'kn</div>' ;
+					echo '<div class="panel-footer">';
+					echo "<form name='delete' action='Delete.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_delete'>" .
 							"<input type='submit' value='Obriši unos'> </form>" ;
-						
-						
-						echo "</td><td>";
-						echo "<form name='switch' action='Switch.php' method='POST'>" . 
+					echo "<form name='switch' action='Switch.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_switch'>" .
 							"<input type='submit' value='Promjeni prikazivanje'> </form>";
-						echo "</td></tr>";
-						echo "</Table></Article>";
+							
+					echo '</div>';
+					echo '</div> </div>';
 					}
-
+					echo '</div></div><br>'; 
+					
 					sqlsrv_close($dbc);
 				?>
-		</main>
+	
+	
+
+	<br>
+	<br>
 		
-		<footer>
-				<p>Dubravko Kaluđer dkaluder@tvz.hr 2017</p>
-		</footer>
+	<?php include 'foot.php';?>
 	</body>
 </html>
-
 

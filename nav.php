@@ -21,7 +21,7 @@
         <li><a href="onama.php"<?php echo ($page == 'onama') ? "class='active'" : ""; ?>>O nama</a></li>
         <li><a href="unos.php" <?php echo ($page == 'unos') ? "class='active'" : ""; ?>>Unos</a></li>
         <li><a href="proizvodi.php" <?php echo ($page == 'proizvodi') ? "class='active'" : ""; ?>>Proizvodi</a></li>
-        <li><a href="administrator" <?php echo ($page == 'administrator') ? "class='active'" : ""; ?>>Administrator</a></li>
+        <li><a href="administrator.php" <?php echo ($page == 'administrator') ? "class='active'" : ""; ?>>Administrator</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
