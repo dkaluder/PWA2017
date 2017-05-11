@@ -8,10 +8,10 @@
 	<body>
 	<?php $page = 'unos'; include('nav.php'); ?>
 	
-	<div class="container col-lg-8 col-lg-offset-2 text-center">
+	<div class="container ">
 	<h2>Unos novog oglasa</h2>
 	
-	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
+	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST" class="col-lg-8 col-lg-offset-2 text-center">
 		  <div class="form-group">
 			<label for="naziv">Naziv vozila:</label>
 			<input type="text" class="form-control" name="naziv" id="naziv" placeholder="Unesite naziv automobila">
