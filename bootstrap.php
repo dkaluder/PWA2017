@@ -60,17 +60,97 @@
     </div>
   </div>
 </nav>
-	
+
+
+
+
+	<?php
+					include "database.php";
+					$koliko = 0;
+					$query = "SELECT * FROM oglas where arhiviraj = 'ne';";
+					$result = sqlsrv_query($dbc, $query);
+					
+					while($row = sqlsrv_fetch_array($result)) {
+					
+					if($koliko%3 == 0){echo'<div class="container">    
+							<div class="row">';}	
+							
+					echo ' <div class="row">
+							<div class="col-sm-4">
+								<div class="panel panel-primary">
+									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
+						
+					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .'" class="img-responsive" style="width:100%" alt="Image"></div>' ;
+					echo '<div class="panel-footer">'. $row['Cijena'] .' kn</div>';
+					echo '</div> </div>';
+					
+					if($koliko%3 == 0){echo '</div></div><br>'; }
+					$koliko++;
+					}
+					
+					sqlsrv_close($dbc);
+				?>
+
 
 		
-		<main>
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-danger">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
 		
-			
-			
-		</main>
-		
-		<footer>
-			<p>Dubravko Kaluđer dkaluder@tvz.hr 2017</p>
+		<footer class="container-fluid text-center">
+			<p>Dubravko Kaluđer Copyright</p>  
+			<form class="form-inline">Get deals:
+				<input type="email" class="form-control" size="50" placeholder="Email Address">
+				<button type="button" class="btn btn-danger">Sign Up</button>
+			 </form>
 		</footer>
 	</body>
 </html>
