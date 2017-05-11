@@ -27,13 +27,19 @@
 					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .
 						 '" class="img-responsive" style="width:100%" alt="Image">'.$row['Opis'].'<br>Cijena:'.$row['Cijena'].'kn</div>' ;
 					echo '<div class="panel-footer">';
-					
-					echo "<form name='delete' action='Delete.php' method='POST'>" . 
-						"<input type='hidden' value='" . $row['ID'] . "' name='ID_delete'>" .
-							"<button type='submit' class='btn btn-primary'>Obriši oglas</button></form>";
-					echo "<form name='switch' action='Switch.php' method='POST'>" . 
+					echo '<div class="row">
+							<div class="col-sm-6">
+								'."<form name='switch' action='Switch.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_switch'>" .
-						"<button type='submit' class='btn btn-primary'>Promjeni prikazivanje</button></form>";
+						"<button type='submit' class='btn btn-primary'>Promjeni prikazivanje</button></form>";.'
+							</div>
+							<div class="col-sm-6">
+								'."<form name='delete' action='Delete.php' method='POST'>" . 
+						"<input type='hidden' value='" . $row['ID'] . "' name='ID_delete'>" .
+							"<button type='submit' class='btn btn-primary'>Obriši oglas</button></form>".'
+							</div>
+						</div>'
+					
 							
 					echo '</div>';
 					echo '</div> </div>';
