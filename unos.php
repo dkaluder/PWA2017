@@ -7,7 +7,10 @@
 	
 	<body>
 	<?php $page = 'unos'; include('nav.php'); ?>
-
+	
+	<div class="container col-sm-8">
+	<h2>Unos novog oglasa</h2>
+	
 	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
 		  <div class="form-group">
 			<label for="naziv">Naziv vozila:</label>
@@ -53,8 +56,8 @@
 			</label>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Pohrani</button>
-</form>
-	
+	</form>
+	</div>
 	
 	<br>
 	<br>
