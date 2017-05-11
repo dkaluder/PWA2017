@@ -31,7 +31,7 @@
 							<div class="col-sm-6">
 								'."<form name='switch' action='Switch.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_switch'>" .
-						"<button type='submit' class='btn btn-primary'>Promjeni prikazivanje</button></form>";.'
+						"<button type='submit' class='btn btn-primary'>Promjeni prikazivanje</button></form>".'
 							</div>
 							<div class="col-sm-6">
 								'."<form name='delete' action='Delete.php' method='POST'>" . 
