@@ -36,9 +36,8 @@
 							<div class="col-sm-6">
 								'."<form name='delete' action='Delete.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_delete'>" .
-							"<button type='submit' class='btn btn-primary'>Obriši oglas</button></form>".'
-							</div>
-						</div>'
+							"<button type='submit' class='btn btn-primary'>Obriši oglas</button></form>".
+							'</div></div>';
 					
 							
 					echo '</div>';
