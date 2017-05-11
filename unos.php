@@ -6,7 +6,7 @@
 	</head>
 	
 	<body>
-	<?php $page = 'pocetna'; include('nav.php'); ?>
+	<?php $page = 'unos'; include('nav.php'); ?>
 
 	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
 		  <div class="form-group">
