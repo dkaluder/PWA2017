@@ -8,7 +8,7 @@
 	<body>
 	<?php $page = 'unos'; include('nav.php'); ?>
 	
-	<div class="container col-sm-8">
+	<div class="container col-lg-8 col-lg-offset-2 text-center">
 	<h2>Unos novog oglasa</h2>
 	
 	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
