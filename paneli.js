@@ -7,7 +7,7 @@ function evenpanels() {
 			var minh = heights[0];                      // take the highest number    
 			$(".panel-body").height(minh);              // and apply that to each element
 		}
-		
+		window.onload = evenpanels;
 		$(window).resize(function () { 
         $(".panel-body").each(function(){
             $(this).css('height',"");           // clear height values
