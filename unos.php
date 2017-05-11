@@ -1,66 +1,65 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Unos</title>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" type="text/css" href="unos.css"/>
-		<meta charset="UTF-8"/>
+		<?php include 'head.php';?>
+		<title>Prodaja vozila</title>
 	</head>
 	
 	<body>
-		<header>
-			<?php include("header.php"); ?>
-		</header>
-			
-		<main>	
-			<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
-			<input type="hidden" name="MAX_FILE_SIZE" value="3048576" />
-			<Table>
-				<tr>
-				<td> <label for="naziv">Naziv vozila:</label> </td>
-				<td><input id="input_naziv" type="text" name="naziv" />  </td>
-				</tr>
-				<tr>
-				<td><label for="sifra">Šifra:</label></td>
-				<td><input id="input_sifra" type="text" name="sifra" /></td>
-				<tr/>
-				<tr>
-				<td><label for="kategorija">Kategorija:</label></td>
-				<td><select id ="input_kategorija" name="kategorija" >
-				  <option value="Automobil">Automobil</option>
+	<?php $page = 'pocetna'; include('nav.php'); ?>
+
+	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST">
+		  <div class="form-group">
+			<label for="naziv">Naziv vozila:</label>
+			<input type="text" class="form-control" name="naziv" id="naziv" placeholder="Unesite naziv automobila">
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="sifra">Naziv vozila:</label>
+			<input type="text" class="form-control" name="sifra" id="sifra" placeholder="Unesite sifru automobila">
+		  </div>
+	
+		  <div class="form-group">
+			<label for="kategorija">Kategorija vozila</label>
+			<select class="form-control" name="kategorija" id="kategorija">
+			      <option value="Automobil">Automobil</option>
 				  <option value="Motocikl">Motocikl</option>
-				  <option value="Terenac">Terenac</option>
-				  <option value="Kombi">Kombi</option>
+				  <option value="Oldtimer">Oldtimer</option>
+				  <option value="Kamper">Kamper</option>
 				  <option value="Kamion">Kamion</option>
-				</select></td>
-				<tr/>
-				
-				<tr>
-				<td colspan="2" ><textarea id="input_opis" name="opis"   placeholder="Kratiki opis proizvoda" ></textarea> </td>
-				<tr/>
-				<tr>
-				<td><label for="cijena">Cijena(kn):</label></td>
-				<td><input id="input_cijena" type="number" name="cijena" /></td>
-				<tr/>
-				
-				<tr>
-				<td><label for="picture" >Upload slike </label></td>
-				<td><input id ="picture" type="file" name="picture" accept="image/*"></td>
-				<tr/>
-				<tr>
-				<td colspan="2" ><input id="input_arhiviraj" type="checkbox" name="arhiviraj" value="da">
-				<label for="arhiviraj" >Arhiviraj </label></td>
-				<tr/>
-				<tr>
-				<td colspan="2"  ><input type="submit" value="Pohrani" ></td>
-				</tr>
-			</Table>
-			</form>
-			
-		</main>
+			</select>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="opis">Opis vozila:</label>
+			<textarea class="form-control" name="opis" rows="3" id="opis"></textarea>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="cijena">Cijena vozila(kn):</label>
+			<input type="number" class="form-control" name="cijena" id="cijena" >
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="picture">File input</label>
+			<input type="file" name="picture" class="form-control-file" id="picture" aria-describedby="fileHelp" accept="image/*">
+			<small id="fileHelp" class="form-text text-muted">Maksimalna veličina slike je 3 Mb. </small>
+		  </div>
+		  
+		  <div class="form-check">
+			<label class="form-check-label" for="arhiviraj">
+			  <input type="checkbox" class="form-check-input" id="arhiviraj" name="arhiviraj" value="da">
+			  Arhiviraj
+			</label>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Pohrani</button>
+</form>
+	
+	
+	<br>
+	<br>
 		
-		<footer>
-				<p>Dubravko Kaluđer dkaluder@tvz.hr 2017</p>
-		</footer>
+	<?php include 'foot.php';?>
 	</body>
 </html>
+

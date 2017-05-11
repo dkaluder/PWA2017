@@ -1,47 +1,44 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Unos</title>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" type="text/css" href="proizvodi.css"/>
-		<meta charset="UTF-8"/>
+		<?php include 'head.php';?>
+		<title>Ponuda</title>
+		<script src="paneli.js"> </script>
 	</head>
 	
 	<body>
-		<header>
-			<?php include("header.php"); ?>
-		</header>
-			
-		<main>
-		<?php
+	<?php $page = 'proizvodi'; include('nav.php'); ?>
+
+
+
+
+	<?php
 					include "database.php";
-					
 					$query = "SELECT * FROM oglas where arhiviraj = 'ne';";
 					$result = sqlsrv_query($dbc, $query);
-					while($row = sqlsrv_fetch_array($result)) { 
-					echo "<Article><Table>" ;
+					echo'<div class="container">    
+							<div class="row">';
+					while($row = sqlsrv_fetch_array($result)) {
+							
+					echo '<div class="col-sm-4">
+								<div class="panel panel-primary">
+									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
 						
-						echo "<tr><td>Naziv:</td><td>" . $row['Naziv'] . '</td></tr>';
-						echo "<tr><td>Sifra:</td><td>" . $row['Sifra'] . '</td></tr>';
-						echo "<tr><td>Cijena:</td><td>" . $row['Cijena'] . '</td></tr>' ;
-						echo "<tr><td>Kategorija:</td><td>" . $row['Kategorija'] . '</td></tr>';
-						echo "<tr><td>Opis:</td><td>" . $row['Opis'] . '</td></tr>';
-						echo '<tr><td colspan="2"><img src="Img/' . $row['URLSlike'] . '" /></td></tr>';
-					echo "</Table></Article>";
-
+					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .'" class="img-responsive" style="width:100%" alt="Image"></div>' ;
+					echo '<div class="panel-footer">'. $row['Cijena'] .' kn</div>';
+					echo '</div> </div>';
 					}
+					echo '</div></div><br>'; 
 					
 					sqlsrv_close($dbc);
 				?>
+	
+	
+
+	<br>
+	<br>
 		
-		</main>
-		
-		<footer>
-				<p>Dubravko Kaluđer dkaluder@tvz.hr 2017</p>
-		</footer>
+	<?php include 'foot.php';?>
 	</body>
 </html>
-
-
-
 

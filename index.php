@@ -1,26 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Početna</title>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<meta charset="UTF-8"/>
+		<?php include 'head.php';?>
+		<title>Prodaja vozila</title>
 	</head>
 	
 	<body>
-		<header>
-			<?php include("header.php"); ?>
+	<?php $page = 'pocetna'; include('nav.php'); ?>
 
-		</header>
+	<br>
+	<br>
 		
-		<main>
-		
-			
-			
-		</main>
-		
-		<footer>
-			<p>Dubravko Kaluđer dkaluder@tvz.hr 2017</p>
-		</footer>
+	<?php include 'foot.php';?>
 	</body>
 </html>
 

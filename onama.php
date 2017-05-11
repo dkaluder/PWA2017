@@ -1,24 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<?php include 'head.php';?>
 		<title>O nama</title>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<meta charset="UTF-8"/>
 	</head>
 	
 	<body>
-		<header>
-			<?php include("header.php"); ?>
-			</nav>
-		</header>
-			
-		<main>
-			
-			
-		</main>
+	<?php $page = 'onama'; include('nav.php'); ?>
+
+	<br>
+	<br>
 		
-		<footer>
-				<p>Dubravko Kaluđer dkaluder@tvz.hr 2017</p>
-		</footer>
+	<?php include 'foot.php';?>
 	</body>
 </html>
+
