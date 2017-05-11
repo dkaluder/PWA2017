@@ -30,8 +30,8 @@
 	<body>
 	<div class="jumbotron">
 	<div class="container text-center">
-    <h1>Prodaja rabljnih vozila <img src="Img/logoCar.svg"></div></h1>      
-    <p>Mission, Vission & Values</p>
+    <h1>Prodaja rabljnih vozila</h1>      
+    <p>Automobili, Motocikli, Oldtimeri, Kamperi & Kamioni</p>
 	</div>
 	</div>
 	
