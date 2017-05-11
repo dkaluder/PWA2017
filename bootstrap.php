@@ -75,8 +75,7 @@
 					if($koliko%3 == 0){echo'<div class="container">    
 							<div class="row">';}	
 							
-					echo ' <div class="row">
-							<div class="col-sm-4">
+					echo '<div class="col-sm-4">
 								<div class="panel panel-primary">
 									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
 						
