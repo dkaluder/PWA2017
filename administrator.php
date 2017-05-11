@@ -14,7 +14,7 @@
 
 	<?php
 					include "database.php";
-					$query = "SELECT * FROM oglas where arhiviraj = 'ne';";
+					$query = "SELECT * FROM oglas;";
 					$result = sqlsrv_query($dbc, $query);
 					echo'<div class="container">    
 							<div class="row">';
@@ -25,7 +25,7 @@
 									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
 						
 					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .
-						 '" class="img-responsive" style="width:100%" alt="Image">'.$row['Opis'].'<br>Cijena:'.$row['Cijena'].'kn</div>' ;
+						 '" class="img-responsive" style="width:100%" alt="Image">'.$row['Opis'].'<br>Cijena:'.$row['Cijena'].'kn<br>U arhivi:'. $row['Arhiviraj'] .'</div>' ;
 					echo '<div class="panel-footer">';
 					echo '<div class="row">
 							<div class="col-sm-6">
