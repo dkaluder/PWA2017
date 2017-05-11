@@ -27,12 +27,13 @@
 					echo '<div class="panel-body"><img src="Img/' . $row['URLSlike'] .
 						 '" class="img-responsive" style="width:100%" alt="Image">'.$row['Opis'].'<br>Cijena:'.$row['Cijena'].'kn</div>' ;
 					echo '<div class="panel-footer">';
+					
 					echo "<form name='delete' action='Delete.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_delete'>" .
-							"<input type='submit' value='Obriši unos'> </form>" ;
+							"<button type='submit' class='btn btn-primary'>Obriši oglas</button></form>";
 					echo "<form name='switch' action='Switch.php' method='POST'>" . 
 						"<input type='hidden' value='" . $row['ID'] . "' name='ID_switch'>" .
-							"<input type='submit' value='Promjeni prikazivanje'> </form>";
+						"<button type='submit' class='btn btn-primary'>Promjeni prikazivanje</button></form>";
 							
 					echo '</div>';
 					echo '</div> </div>';
