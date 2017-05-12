@@ -11,7 +11,7 @@
 	<div class="container ">
 	
 	
-	<form name="Unos"  enctype="multipart/form-data" action="Skripta.php" method="POST" class="form-horizontal ">
+	<form name="Unos"  enctype="multipart/form-data" action="pohrani.php" method="POST" class="form-horizontal ">
 		  <h2>Unos novog oglasa</h2>
 		  
 		  <div class="form-group">

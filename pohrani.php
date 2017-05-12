@@ -1,19 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Unos</title>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<meta charset="UTF-8"/>
+		<?php include 'head.php';?>
+		<title>UspjeÅ¡na predaja oglasa</title>
 	</head>
 	
 	<body>
-		<header>
-			<?php include("header.php"); ?>
-		</header>
-			
-		<main>
-		
-		<?php
+	<?php $page = 'pohrani'; include('nav.php'); ?>
+	
+	<?php
 		
 			$naziv = $_POST['naziv'];
 			$sifra = $_POST['sifra'];
@@ -34,14 +29,31 @@
 			{
 				$arhiviraj = 'ne';
 			}    
-
-			echo "<h1>" .$kategorija. "&nbsp; &nbsp;" . $naziv . '<br />' . "</h1>";
-			echo "Sifra: &nbsp;" . $sifra . "<br />";
-			echo "Cijena: &nbsp;" . $cijena . "kn <br />";
-			echo $opis . "<br />";
-			echo "Arhiviraj: " . $arhiviraj . "<br />";
-			echo '<img src="Img/' . $picture . '" />';
-
+			
+			echo'<div class="container">    
+					<div class="row">';			
+			echo 		'<div class="col-sm-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading">'.$kategorija.': '.$naziv.'</div>' ;
+						
+			echo 				'<div class="panel-body"><img src="Img/' . $picture .
+										'" class="img-responsive" style="width:100%" alt="'.$picture.'">'.
+										'<br>Cijena:'.$cijena.'kn<br>Sifra:'.$sifra.'<br>U arhivu:'. $arhiviraj .'</div>' ;
+					
+			echo 				'<div class="panel-footer">'. $opis.' kn</div>';
+			echo 			'</div>
+						</div>';
+					
+			echo	'</div>
+				</div>
+				<br>'; 
+			
+			
+			
+			
+			
+			
+			
 			
 			include "database.php";
 			$query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj, URLSlike) 
@@ -51,14 +63,13 @@
 					
 					sqlsrv_close($dbc);
 		?>	
-		</main>
+	
+	
+
+	<br>
+	<br>
 		
-		<footer>
-				<p>Dubravko Kaluðer dkaluder@tvz.hr 2017</p>
-		</footer>
+	<?php include 'foot.php';?>
 	</body>
 </html>
-
-
-
 
