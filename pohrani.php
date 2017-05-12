@@ -33,7 +33,7 @@
 			echo'<div class="container">    
 					<div class="row">';			
 			echo 		'<div class="col-sm-4">
-							<div class="panel panel-primary">
+							<div class="panel panel-success">
 								<div class="panel-heading">'.$kategorija.': '.$naziv.'</div>' ;
 						
 			echo 				'<div class="panel-body"><img src="Img/' . $picture .
