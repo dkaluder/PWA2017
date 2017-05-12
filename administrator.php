@@ -20,7 +20,7 @@
 							<div class="row">';
 					while($row = sqlsrv_fetch_array($result)) {
 						
-					$panel = ( <$row['Arhiviraj'] == 'ne'> ? <'panel-success'> : <'panel-info'> );		
+					$panel = ( $row['Arhiviraj'] == 'ne' ? 'panel-success' : 'panel-info' );		
 					echo '<div class="col-sm-4">
 								<div class="panel '.$panel.'">
 									<div class="panel-heading">'.$row['Naziv'].'</div>' ;
