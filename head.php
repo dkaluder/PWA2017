@@ -1,4 +1,4 @@
-		<link rel="icon"  type="image/png"  href="Img/logoCar.svg">
+		<link rel="icon"  type="image/png"  href="Img/favicon.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
