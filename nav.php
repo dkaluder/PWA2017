@@ -13,19 +13,28 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>                        
 				</button>
-				<a class="navbar-brand" href="#">Logo</a>
+				<a class="navbar-brand" href="#"><img src="Img/logoCar.svg"  ></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li <?php echo ($page == 'pocetna') ? "class='active'" : ""; ?>><a href="index.php">Početna</a></li>
-					<li <?php echo ($page == 'onama') ? "class='active'" : ""; ?>><a href="onama.php">O nama</a></li>
+					<li <?php echo ($page == 'index') ? "class='active'" : ""; ?>><a href="index.php">Početna</a></li>
 					<li <?php echo ($page == 'unos') ? "class='active'" : ""; ?>><a href="unos.php" >Unos</a></li>
 					<li <?php echo ($page == 'proizvodi') ? "class='active'" : ""; ?>><a href="proizvodi.php" >Proizvodi</a></li>
 					<li <?php echo ($page == 'administrator') ? "class='active'" : ""; ?>><a href="administrator.php" >Administrator</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+					<li class="dropdown">
+						  <a href="#" role="button" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="glyphicon glyphicon-user"> 
+							<?php echo $row['userEmail']; ?>
+							<i class="caret"></i>
+						  </a>
+						  
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<li><a class="dropdown-item " href="logout.php">Logout</a></li>
+						  </ul>
+					</li>
+					
 				</ul>
 			</div>
 		</div>

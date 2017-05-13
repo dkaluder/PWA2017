@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once 'class.user.php';
+$user_home = new USER();
+
+if(!$user_home->is_logged_in())
+{
+	$user_home->redirect('login.php');
+}
+
+$stmt = $user_home->runQuery("SELECT * FROM tbl_users WHERE userID=:uid");
+$stmt->execute(array(":uid"=>$_SESSION['userSession']));
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -40,7 +55,7 @@
 										'" class="img-responsive" style="width:100%" alt="'.$picture.'">'.
 										'<br>Cijena:'.$cijena.'kn<br>Sifra:'.$sifra.'<br>U arhivu:'. $arhiviraj .'</div>' ;
 					
-			echo 				'<div class="panel-footer">'. $opis.' kn</div>';
+			echo 				'<div class="panel-footer">'. $opis.' </div>';
 			echo 			'</div>
 						</div>';
 					
@@ -58,10 +73,10 @@
 			include "database.php";
 			$query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj, URLSlike) 
 					VALUES ('$naziv', '$sifra', '$cijena', '$kategorija', '$opis', '$arhiviraj', '$picture')";
+			$result = $dbc->query($query);		
+			$result = null;
+			$dbc = null;
 					
-					$result = sqlsrv_query($dbc, $query) or die('Error querying databese.');
-					
-					sqlsrv_close($dbc);
 		?>	
 	
 	
