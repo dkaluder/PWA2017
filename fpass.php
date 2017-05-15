@@ -5,23 +5,23 @@ $user = new USER();
 
 if($user->is_logged_in()!="")
 {
-	$user->redirect('home.php');
+	$user->redirect('index.php');
 }
 
 if(isset($_POST['btn-submit']))
 {
 	$email = $_POST['txtemail'];
-	
-	$stmt = $user->runQuery("SELECT userID FROM tbl_users WHERE userEmail=:email LIMIT 1");
-	$stmt->execute(array(":email"=>$email));
+	$stmt = $user->runQuery("SELECT userID FROM tbl_users WHERE userEmail LIKE '".$email."';");
+	$stmt->execute();
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);	
-	if($stmt->rowCount() == 1)
+	
+	if($stmt->rowCount() == -1)
 	{
 		$id = base64_encode($row['userID']);
 		$code = md5(uniqid(rand()));
 		
-		$stmt = $user->runQuery("UPDATE tbl_users SET tokenCode=:token WHERE userEmail=:email");
-		$stmt->execute(array(":token"=>$code,"email"=>$email));
+		$stmt = $user->runQuery("UPDATE tbl_users SET tokenCode = '".$code."' WHERE userEmail LIKE '".$email."';");
+		$stmt->execute();
 		
 		$message= "
 				   Hello , $email
@@ -30,7 +30,7 @@ if(isset($_POST['btn-submit']))
 				   <br /><br />
 				   Click Following Link To Reset Your Password 
 				   <br /><br />
-				   <a href='http://localhost/x/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
+				   <a href='http://dkaluder.azurewebsites.net/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
 				   <br /><br />
 				   thank you :)
 				   ";

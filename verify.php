@@ -17,7 +17,6 @@ if(isset($_GET['id']) && isset($_GET['code']))
 	$stmt = $user->runQuery("SELECT userID,userStatus FROM tbl_users WHERE  userID=".$id." AND tokenCode LIKE '".$code."';");
 	$stmt->execute();
 	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-	$msg1 = $row['userStatus'] .$row['userID'].$stmt->rowCount() ;
 	
 	$stmt->execute();
 	
@@ -75,7 +74,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
   <body id="login">
   <?php $page = 'verify'; include('notLoggedNav.php'); ?>
     <div class="container">
-		<?php if(isset($msg)) { echo $msg.$msg1; } ?>
+		<?php if(isset($msg)) { echo $msg; } ?>
 		<p>Ispisi ovo</p>
     </div> <!-- /container -->
     <script src="vendors/jquery-1.9.1.min.js"></script>
