@@ -50,11 +50,11 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT * FROM tbl_users WHERE userEmail=:email_id");
-			$stmt->execute(array(":email_id"=>$email));
+			$stmt = $this->conn->prepare("SELECT * FROM tbl_users WHERE userEmail='".$email."'");
+			$stmt->execute();
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			
-			if($stmt->rowCount() == 1)
+			if($stmt->rowCount() == -1)
 			{
 				if($userRow['userStatus']=="Y")
 				{
@@ -120,8 +120,8 @@ class USER
 		$mail->AddAddress($email);
 		$mail->Username="pwa2017login@gmail.com";  
 		$mail->Password="cbb446bb";            
-		$mail->SetFrom('pwa2017login@gmail.com','Coding Cage');
-		$mail->AddReplyTo("pwa2017login@gmail.com","Coding Cage");
+		$mail->SetFrom('pwa2017login@gmail.com','Dubravko Kaluder');
+		$mail->AddReplyTo("pwa2017login@gmail.com","Dubravko Kaluder");
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();

@@ -8,17 +8,22 @@ if(empty($_GET['id']) && empty($_GET['code']))
 }
 
 if(isset($_GET['id']) && isset($_GET['code']))
-{
+{	
 	$id = base64_decode($_GET['id']);
 	$code = $_GET['code'];
 	
 	$statusY = "Y";
 	$statusN = "N";
-	
-	$stmt = $user->runQuery("SELECT userID,userStatus FROM tbl_users WHERE userID=:uID AND tokenCode=:code LIMIT 1");
-	$stmt->execute(array(":uID"=>$id,":code"=>$code));
+	$stmt = $user->runQuery("SELECT userID,userStatus FROM tbl_users WHERE  userID=".$id." AND tokenCode LIKE '".$code."';");
+	$stmt->execute();
 	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-	if($stmt->rowCount() > 0)
+	$msg1 = $row['userStatus'] .$row['userID'].$stmt->rowCount() ;
+	
+	$stmt->execute();
+	
+	$row=$stmt->fetch(PDO::FETCH_ASSOC);
+	
+	if($stmt->rowCount() == -1)
 	{
 		if($row['userStatus']==$statusN)
 		{
@@ -68,9 +73,9 @@ if(isset($_GET['id']) && isset($_GET['code']))
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
   </head>
   <body id="login">
-  <?php $page = 'veirify'; include('notLoggedNav.php'); ?>
+  <?php $page = 'verify'; include('notLoggedNav.php'); ?>
     <div class="container">
-		<?php if(isset($msg)) { echo $msg; } ?>
+		<?php if(isset($msg)) { echo $msg.$msg1; } ?>
 		<p>Ispisi ovo</p>
     </div> <!-- /container -->
     <script src="vendors/jquery-1.9.1.min.js"></script>
