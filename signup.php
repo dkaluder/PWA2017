@@ -21,7 +21,7 @@ if(isset($_POST['btn-signup']))
 	$stmt->execute(array(":email_id"=>$email));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	
-	if($stmt->rowCount() > 0)
+	if($stmt->rowCount() <> 0)
 	{
 		$msg = "
 		      <div class='alert alert-error'>
@@ -41,10 +41,10 @@ if(isset($_POST['btn-signup']))
 			$message = "					
 						Hello $uname,
 						<br /><br />
-						Welcome to Coding Cage!<br/>
+						Welcome to Prodaja Vozila!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://localhost/x/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://dkaluder.azurewebsites.net/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
 						
@@ -61,7 +61,7 @@ if(isset($_POST['btn-signup']))
 		}
 		else
 		{
-			echo "sorry , Query could no execute...";
+			echo "sorry , Query could not execute...";
 		}		
 	}
 }
