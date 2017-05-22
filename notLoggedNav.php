@@ -20,9 +20,8 @@
 					<li <?php echo ($page == 'login') ? "class='active'" : ""; ?>><a href="login.php">Login</a></li>
 					<li <?php echo ($page == 'signup') ? "class='active'" : ""; ?>><a href="signup.php">Signup</a></li>
 					<li <?php echo ($page == 'fpass') ? "class='active'" : ""; ?>><a href="fpass.php" >Forgot Password</a></li>
-					
+					<li <?php echo ($page == 'proizvodi') ? "class='active'" : ""; ?>><a href="proizvodi.php" >Proizvodi</a></li>
 				</ul>
-				
 			</div>
 		</div>
 	</nav>

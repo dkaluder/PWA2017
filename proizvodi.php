@@ -5,13 +5,13 @@ $user_home = new USER();
 
 if(!$user_home->is_logged_in())
 {
-	$user_home->redirect('index.php');
+//	$user_home->redirect('index.php');
 }
-
+else{
 $stmt = $user_home->runQuery("SELECT * FROM tbl_users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -23,7 +23,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 	</head>
 	
 	<body>
-	<?php $page = 'proizvodi'; include('nav.php'); ?>
+	<?php	if($user_home->is_logged_in()){ $page = 'proizvodi'; include('nav.php');}
+			else {$page = 'proizvodi'; include('notLoggedNav.php');}
+	?>
 
 
 
