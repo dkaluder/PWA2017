@@ -19,9 +19,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 	<head>
 		<?php include 'head.php';?>
 		<title>Prodaja vozila</title>
+		
+
 	</head>
-	
 	<body>
+	<
 	<?php $page = 'unos'; include('nav.php'); ?>
 	
 	<div class="container ">
@@ -33,32 +35,38 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 		  <div class="form-group">
 			<label for="naziv">Naziv vozila:</label>
 			<input type="text" class="form-control" name="naziv" id="naziv" placeholder="Unesite naziv automobila">
+			<small id="nazivHelp" class="form-text text-muted"></small>
 		  </div>
 		  
 		  <div class="form-group">
 			<label for="sifra">Šifra vozila:</label>
 			<input type="text" class="form-control" name="sifra" id="sifra" placeholder="Unesite sifru automobila">
+			<small id="sifraHelp" class="form-text text-muted"></small>
 		  </div>
 	
 		  <div class="form-group">
 			<label for="kategorija">Kategorija vozila</label>
 			<select class="form-control" name="kategorija" id="kategorija">
+				  <option value="" disabled selected>Odaberi kategoriju</option>
 			      <option value="Automobil">Automobil</option>
 				  <option value="Motocikl">Motocikl</option>
 				  <option value="Oldtimer">Oldtimer</option>
 				  <option value="Kamper">Kamper</option>
 				  <option value="Kamion">Kamion</option>
 			</select>
+			<small id="kategorijaHelp" class="form-text text-muted"></small>
 		  </div>
 		  
 		  <div class="form-group">
 			<label for="opis">Opis vozila:</label>
 			<textarea class="form-control" name="opis" rows="3" id="opis"></textarea>
+			<small id="opisHelp" class="form-text text-muted"></small>
 		  </div>
 		  
 		  <div class="form-group">
 			<label for="cijena">Cijena vozila(kn):</label>
 			<input type="number" class="form-control" name="cijena" id="cijena" >
+			<small id="cijenaHelp" class="form-text text-muted"></small>
 		  </div>
 		  
 		  <div class="form-group">
@@ -72,8 +80,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 			  <input type="checkbox" class="form-check-input" id="arhiviraj" name="arhiviraj" value="da">
 			  Arhiviraj
 			</label>
+			<small id="arhivirajHelp" class="form-text text-muted"></small>
 		  </div>
-		  <button type="submit" class="btn btn-primary">Pohrani</button>
+		  <button type="submit" class="btn btn-primary" id="spremi">Pohrani</button>
 	</form>
 	</div>
 	
@@ -81,6 +90,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 	<br>
 		
 	<?php include 'foot.php';?>
+	 <script src="kontrolUnos.js"></script>  
 	</body>
 </html>
 
