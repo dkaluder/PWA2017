@@ -1,11 +1,14 @@
 <?php 
 	include "database.php";	
 	$id = $_POST['ID_delete'];
-	/*$queryGetImage="SELECT oglas.URLSlike FROM oglas where oglas.id = ".$id." LIMIT 1;";
+	$queryGetImage="SELECT oglas.URLSlike FROM oglas where oglas.id = ".$id."";
 	$red = $dbc->query($queryGetImage);
 	$column = $red->fetchColumn();
-	unlink('Img/'.$column);*/
-	$query = "DELETE FROM oglas WHERE ID = " . $id . " LIMIT 1;";
+	if($column != 'noPicture.jpg')
+	{
+		unlink('Img/'.$column);
+	}
+	$query = "DELETE FROM oglas WHERE ID = " . $id . ";";
 	$result = $dbc->query($query);		
 	$result = null;
 	$dbc = null;
