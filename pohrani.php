@@ -51,7 +51,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 							<div class="panel panel-success">
 								<div class="panel-heading">'.$kategorija.': '.$naziv.'</div>' ;
 						
-			echo 				'<div class="panel-body"><img src="Img/' . $picture .
+			echo 				'<div class="panel-body"><img src="Img/' . ($picture == "")?"noPicture.jpg":$picture .
 										'" class="img-responsive" style="width:100%" alt="'.$picture.'">'.
 										'<br>Cijena:'.$cijena.'kn<br>Sifra:'.$sifra.'<br>U arhivu:'. $arhiviraj .'</div>' ;
 					
