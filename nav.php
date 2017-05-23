@@ -20,7 +20,10 @@
 					<li <?php echo ($page == 'index') ? "class='active'" : ""; ?>><a href="index.php">Početna</a></li>
 					<li <?php echo ($page == 'unos') ? "class='active'" : ""; ?>><a href="unos.php" >Unos</a></li>
 					<li <?php echo ($page == 'proizvodi') ? "class='active'" : ""; ?>><a href="proizvodi.php" >Proizvodi</a></li>
-					<li <?php echo ($page == 'administrator') ? "class='active'" : ""; ?>><a href="administrator.php" >Administrator</a></li>
+					<?php if($row["userRole"] == "A"){
+					echo '<li  '; echo ($page == 'administrator') ? "class='active'" : "";echo ' ><a href="administrator.php" >Administrator</a></li>';
+					echo '<li  '; echo ($page == 'korisnici') ? "class='active'" : "";echo ' ><a href="korisnici.php" >Korisnici</a></li>';
+					}?>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
