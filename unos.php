@@ -23,7 +23,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 	</head>
 	<body>
-	<
+	
 	<?php $page = 'unos'; include('nav.php'); ?>
 	
 	<div class="container ">

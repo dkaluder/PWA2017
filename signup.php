@@ -44,7 +44,7 @@ if(isset($_POST['btn-signup']))
 						Welcome to Prodaja Vozila!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://dkaluder.azurewebsites.net/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://pwa2017.azurewebsites.net/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
 						
