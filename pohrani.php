@@ -71,8 +71,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 			
 			
 			include "database.php";
-			$query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj, URLSlike) 
-					VALUES ('$naziv', '$sifra', '$cijena', '$kategorija', '$opis', '$arhiviraj', '$picture')";
+			($picture == "") ?  $query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj) 
+													VALUES ('$naziv', '$sifra', '$cijena', '$kategorija', '$opis', '$arhiviraj')" :		
+								$query = "INSERT INTO oglas (Naziv, Sifra, Cijena, Kategorija, Opis, Arhiviraj, URLSlike) 
+													VALUES ('$naziv', '$sifra', '$cijena', '$kategorija', '$opis', '$arhiviraj', '$picture')";
 			$result = $dbc->query($query);		
 			$result = null;
 			$dbc = null;
