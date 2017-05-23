@@ -6,7 +6,7 @@
 	*/
 	// PHP Data Objects(PDO) Sample Code:
 		try {
-			$dbc = new PDO("sqlsrv:server = tcp:bazapwa.database.windows.net,1433; Database = pwa2017", "dkaluder", "{your_password_here}");
+			$dbc = new PDO("sqlsrv:server = tcp:bazapwa.database.windows.net,1433; Database = pwa2017", "dkaluder", "cBB446BB");
 			$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $e) {
