@@ -55,8 +55,8 @@ if(isset($_POST['btn-login']))
 		}
 		?>
         <h2 class="form-signin-heading">Sign In.</h2><hr />
-        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
-        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" required />
+        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail"  required />
+        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" pattern="[a-zA-Z0-9]{6,25}" title="Duljina je između 6 i 25 znakova. Koristite samo slova i brojeve" required />
      	<hr />
         <button class="btn btn-large btn-primary" type="submit" name="btn-login">Sign in</button>
         <a href="signup.php"  class="btn btn-large">Sign Up</a><hr />
