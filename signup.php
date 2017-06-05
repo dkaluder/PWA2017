@@ -80,9 +80,9 @@ if(isset($_POST['btn-signup']))
 				<?php if(isset($msg)) echo $msg;  ?>
       <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Sign Up</h2><hr />
-        <input type="text" class="input-block-level" placeholder="Username" name="txtuname" required />
+        <input type="text" class="input-block-level" placeholder="Username" name="txtuname" pattern="[a-zA-Z0-9]{6,25}" required />
         <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
-        <input type="password" class="input-block-level" placeholder="Password" name="txtpass" required />
+        <input type="password" class="input-block-level" placeholder="Password" name="txtpass" pattern="[a-zA-Z0-9]{6,25}" required />
      	<hr />
         <button class="btn btn-large btn-primary" type="submit" name="btn-signup">Sign Up</button>
         <a href="login.php" style="float:right;" class="btn btn-large">Sign In</a>
